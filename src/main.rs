@@ -3,7 +3,7 @@ use std::{io::{self, Write}, process};
 mod tokenize;
 mod parser;
 
-use crate::{MetaCommandResult::{MetaCommandSuccess, MetaCommandUnrecognizedCommand}, PrepareResult::{PrepareSuccess, PrepareSyntaxError, PrepareUnrecognizedState}, tokenize::Token};
+use crate::{MetaCommandResult::{MetaCommandSuccess, MetaCommandUnrecognizedCommand}, PrepareResult::{PrepareSuccess, PrepareSyntaxError, PrepareUnrecognizedState}};
 
 
 

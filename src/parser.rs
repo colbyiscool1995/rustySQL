@@ -1,4 +1,4 @@
-use crate::tokenize::{Token, TokenKind::{self, Select}};
+use crate::tokenize::{Token, TokenKind::{self}};
 
 #[derive(Debug, PartialEq, Clone)]
 pub enum Statement<'a>{
@@ -163,8 +163,8 @@ impl<'a> Parser<'a> {
     }
 
     fn parse_insert(&mut self) -> Result<InsertStatement<'a>, String> {
-        self.expect(&TokenKind::Insert);
-        self.expect(&TokenKind::Into);
+        self.expect(&TokenKind::Insert)?;
+        self.expect(&TokenKind::Into)?;
         let table = self.expect_identifer()?;
 
         let mut columns = Vec::new();
@@ -177,7 +177,7 @@ impl<'a> Parser<'a> {
                     break;
                 }
             }
-            self.expect(&TokenKind::RParen);
+            self.expect(&TokenKind::RParen)?;
         }
 
         self.expect(&TokenKind::Values)?;
